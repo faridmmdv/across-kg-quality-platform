@@ -1,4 +1,4 @@
-"""
+
 export_rdf.py
 -------------
 Exports RDF graphs from Django DB into per-university TTL files
@@ -23,7 +23,6 @@ import django
 from pathlib import Path
 from rdflib import Graph
 
-# ── Django setup ──────────────────────────────────────────────────
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 django.setup()
@@ -31,7 +30,6 @@ django.setup()
 from api.models import CourseInstance
 from api.api.quality_engine.rdf_builder import build_graph_from_instance
 
-# ── University name → output file mapping ─────────────────────────
 UNIVERSITIES = {
     "TU Chemnitz":          "tuc.ttl",
     "University of Girona": "girona.ttl",
@@ -40,7 +38,6 @@ UNIVERSITIES = {
 
 OUTPUT_DIR = Path("data") / "rdf"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
 
 def export_rdf():
     instances = CourseInstance.objects.select_related(
@@ -87,7 +84,6 @@ def export_rdf():
     print()
     print(f"Done! TTL files written to: {OUTPUT_DIR.resolve()}")
     print("Now run load_fuseki.bat to push them into Fuseki.")
-
 
 if __name__ == "__main__":
     export_rdf()
