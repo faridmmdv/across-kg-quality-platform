@@ -1,0 +1,437 @@
+.submit-page {
+  max-width: 660px;
+}
+
+.tab-bar {
+  display: flex;
+  gap: 4px;
+  background: #f5f6fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 3px;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.tab-btn {
+  padding: 7px 18px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-weight: 400;
+  font-family: inherit;
+}
+
+.tab-btn.active {
+  background: #fff;
+  color: #1a1a2e;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+.form-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.course-index {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.form-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 10px 0 8px;
+  border-bottom: 1px solid #f3f4f6;
+  margin-bottom: 12px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.form-row-1 {
+  margin-bottom: 12px;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.form-input {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 8px 11px;
+  color: #1a1a2e;
+  font-size: 13px;
+  width: 100%;
+  outline: none;
+  font-family: inherit;
+  transition: border-color .15s;
+}
+
+.form-input:focus {
+  border-color: #2563eb;
+}
+
+.form-textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 11px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 500;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+}
+
+.submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.error-msg {
+  font-size: 12px;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 4px;
+  padding: 7px 10px;
+  margin-bottom: 12px;
+}
+
+.csv-upload-area {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 36px;
+  text-align: center;
+}
+
+.csv-upload-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.csv-upload-hint {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 20px;
+  font-family: monospace;
+}
+
+.csv-choose-btn {
+  background: #2563eb;
+  color: #fff;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  font-family: inherit;
+}
+
+.csv-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.csv-header-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a2e;
+}
+
+.csv-header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-clear {
+  font-size: 12px;
+  color: #6b7280;
+  background: none;
+  border: 1px solid #e0e0e0;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-submit-all {
+  font-size: 13px;
+  color: #fff;
+  background: #2563eb;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-submit-all:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.results-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.result-stat {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.result-stat .val {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.result-stat .lbl {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Per course result card */
+.course-result {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.course-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.course-result-header:hover {
+  background: #f9fafb;
+}
+
+.course-result-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.course-result-code {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.course-result-name {
+  font-size: 13px;
+  color: #374151;
+}
+
+.course-result-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.course-result-fair {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.expand-arrow {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.course-result-body {
+  border-top: 1px solid #f0f0f0;
+  padding: 16px;
+}
+
+/* Mini quality report inside CSV result */
+.mini-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 8px;
+  margin-top: 14px;
+}
+
+.mini-section-title:first-child {
+  margin-top: 0;
+}
+
+.fair-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.fair-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.fair-letter {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.fair-score {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 2px 0;
+}
+
+.fair-label {
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+.fair-bar {
+  height: 4px;
+  background: #f0f0f0;
+  border-radius: 2px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.fair-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.violation-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid #f9fafb;
+  font-size: 12px;
+}
+
+.violation-row:last-child {
+  border-bottom: none;
+}
+
+.violation-sev {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  margin-top: 1px;
+}
+
+.sev-error {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.sev-warn {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.violation-msg {
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.sparql-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #f9fafb;
+  font-size: 12px;
+}
+
+.sparql-row:last-child {
+  border-bottom: none;
+}
+
+.sparql-id {
+  color: #2563eb;
+  font-weight: 500;
+  min-width: 50px;
+}
+
+.sparql-title {
+  color: #6b7280;
+  flex: 1;
+}
+
+.sparql-pass {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.sparql-fail {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.no-violations {
+  font-size: 12px;
+  color: #16a34a;
+  padding: 4px 0;
+}

@@ -1,0 +1,72 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #f5f6fa;
+  --white:    #ffffff;
+  --border:   #e0e0e0;
+  --border2:  #c8c8c8;
+  --text:     #1a1a2e;
+  --muted:    #6b7280;
+  --faint:    #9ca3af;
+  --accent:   #2563eb;
+  --accent-light: #eff6ff;
+  --green:    #16a34a;
+  --green-light: #f0fdf4;
+  --red:      #dc2626;
+  --red-light: #fef2f2;
+  --yellow:   #d97706;
+  --yellow-light: #fffbeb;
+  --radius:   6px;
+  --radius-lg: 10px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+input, textarea, select, button {
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--text);
+}
+
+input, textarea, select {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 11px;
+  outline: none;
+  transition: border-color .15s;
+  width: 100%;
+}
+input::placeholder, textarea::placeholder { color: var(--faint); }
+input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+
+button { cursor: pointer; border: none; border-radius: var(--radius); transition: opacity .15s; }
+button:active { opacity: .85; }
+a { color: var(--accent); text-decoration: none; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+.badge { display: inline-flex; align-items: center; font-size: 11px; padding: 2px 8px; border-radius: 4px; white-space: nowrap; font-weight: 500; }
+.badge-pass   { background: var(--green-light);  color: var(--green); }
+.badge-fail   { background: var(--red-light);    color: var(--red); }
+.badge-warn   { background: var(--yellow-light); color: var(--yellow); }
+.badge-info   { background: var(--accent-light); color: var(--accent); }
+.badge-accent { background: var(--accent-light); color: var(--accent); }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--border); border-top-color: var(--accent); animation: spin .7s linear infinite; display: inline-block; }
+
+@keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:.4} }
+.pulse-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse-dot 2s infinite; display: inline-block; }

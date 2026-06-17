@@ -1,0 +1,134 @@
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix schema: <https://schema.org/> .
+@prefix ex:     <https://example.org/vocab/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+schema:CourseShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Course ;
+
+    # Completeness: course code must exist
+    sh:property [
+        sh:path schema:courseCode ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Completeness Error: Course Code is missing." ;
+    ] ;
+
+    # Format: course code must match PREFIX-DEPT-NUMBER or PREFIX-DEPT-NUMBERB
+    # Valid examples: TUC-CS-101, UL-MATH-201, TUD-ENG-301, TUC-CS-101B
+    sh:property [
+        sh:path schema:courseCode ;
+        sh:pattern "^[A-Z]{2,4}-[A-Z]{2,6}-[0-9]{3}[B]?$" ;
+        sh:message "Format Error: Course Code must match format PREFIX-DEPT-NUMBER (e.g. TUC-CS-101)." ;
+    ] ;
+
+    # Completeness: course name must exist
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Completeness Error: Course Name is missing." ;
+    ] ;
+
+    # Completeness: provider (university) must be linked
+    sh:property [
+        sh:path schema:provider ;
+        sh:minCount 1 ;
+        sh:message "Completeness Error: Course must have a provider (University)." ;
+    ] ;
+
+    # Validity: ECTS credits must exist and be in range 1-30
+    sh:property [
+        sh:path ex:ectsCredits ;
+        sh:minCount 1 ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 1 ;
+        sh:maxInclusive 30 ;
+        sh:message "Logic Error: ECTS credits must be an integer between 1 and 30." ;
+    ] .
+
+schema:CourseInstanceShape
+    a sh:NodeShape ;
+    sh:targetClass schema:CourseInstance ;
+
+    # Completeness: must link to a course
+    sh:property [
+        sh:path schema:course ;
+        sh:minCount 1 ;
+        sh:message "Completeness Error: CourseInstance must reference a Course." ;
+    ] ;
+
+    # Completeness: must have an instructor
+    sh:property [
+        sh:path schema:instructor ;
+        sh:minCount 1 ;
+        sh:message "Completeness Error: CourseInstance must have an instructor." ;
+    ] ;
+
+    # Completeness: must have a location
+    sh:property [
+        sh:path schema:location ;
+        sh:minCount 1 ;
+        sh:message "Completeness Error: CourseInstance must have a location." ;
+    ] ;
+
+    # Completeness: start date required
+    sh:property [
+        sh:path schema:startDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date ;
+        sh:message "Completeness Error: CourseInstance must have a startDate." ;
+    ] ;
+
+    # Completeness: end date required
+    sh:property [
+        sh:path schema:endDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date ;
+        sh:message "Completeness Error: CourseInstance must have an endDate." ;
+    ] .
+
+schema:PersonShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Person ;
+
+    # Completeness: name must exist
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Completeness Error: Person (instructor) must have a name." ;
+    ] ;
+
+    # Completeness: name must be meaningful (min 4 chars)
+    sh:property [
+        sh:path schema:name ;
+        sh:minLength 4 ;
+        sh:message "Format Error: Instructor name is too short (minimum 4 characters)." ;
+    ] .
+
+
+schema:EducationalOrganizationShape
+    a sh:NodeShape ;
+    sh:targetClass schema:EducationalOrganization ;
+
+    # Completeness: university name must exist
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Completeness Error: University must have a name." ;
+    ] .
+
+schema:PlaceShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Place ;
+
+    # Completeness: place name must exist
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Completeness Error: Location (Place) must have a name." ;
+    ] .
