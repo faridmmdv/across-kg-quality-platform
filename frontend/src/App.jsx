@@ -11,14 +11,10 @@ function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // NAVIGATION STATE (New!)
   const [currentView, setCurrentView] = useState('dashboard'); // 'dashboard' or 'graph'
-
-  // DATA STATE
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // FETCH DATA
   const fetchCourses = async () => {
     try {
       const response = await axios.get('http://127.0.0.1:8000/api/courses/');
@@ -32,7 +28,6 @@ function App() {
 
   useEffect(() => { fetchCourses(); }, []);
 
-  // ACTIONS
   const handleAddCourse = async (courseData) => {
     try {
       await axios.post('http://127.0.0.1:8000/api/submit/', courseData);
@@ -52,7 +47,6 @@ function App() {
     }
   };
 
-  // LOGIN LOGIC
   const handleLogin = (e) => {
     e.preventDefault();
     if (loginType === 'admin') {
@@ -82,7 +76,6 @@ function App() {
   const totalCount = courses.length;
 
   if (!user) {
-    // ... (Login Screen HTML - Keep this exactly as it was in previous version) ...
     return (
       <div className="login-container">
         <div className="login-hero">
@@ -90,9 +83,7 @@ function App() {
           <h1 className="hero-title">Federated<br/>Knowledge Graph</h1>
           <p className="hero-text">Advanced Quality Management Platform  <strong>FAIR Principles</strong> and <strong>Linked Data Standards</strong>.</p>
           <div className="hero-features">
-            
-            
-
+          
           </div>
         </div>
         <div className="login-form-wrapper">
