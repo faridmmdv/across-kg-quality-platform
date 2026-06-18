@@ -7,7 +7,6 @@ echo  Run this AFTER start_fuseki.bat and AFTER uploading CSV data
 echo ================================================================
 echo.
 
-REM ── Step 1: Export TTL files from Django per university ──────────
 echo [1/4] Exporting RDF graphs from Django database...
 python export_rdf.py
 if %errorlevel% neq 0 (
@@ -18,14 +17,13 @@ if %errorlevel% neq 0 (
 echo       Done. TTL files created in: data\rdf\
 echo.
 
-REM ── Step 2: Check Fuseki is running ──────────────────────────────
+
 echo [2/4] Checking Fuseki servers are online...
 curl -s -o nul -w "  TUC     (3030): %%{http_code}\n" http://localhost:3030/tuc/query
 curl -s -o nul -w "  Girona  (3031): %%{http_code}\n" http://localhost:3031/girona/query
 curl -s -o nul -w "  Udine   (3032): %%{http_code}\n" http://localhost:3032/udine/query
 echo.
 
-REM ── Step 3: Push TTL files to each Fuseki server ─────────────────
 echo [3/4] Pushing RDF data to Fuseki...
 
 echo   Pushing TU Chemnitz...
@@ -47,7 +45,7 @@ curl -s -X POST http://localhost:3032/udine/data ^
 echo   Udine done.
 echo.
 
-REM ── Step 4: Quick triple count check ─────────────────────────────
+
 echo [4/4] Verifying triple counts in Fuseki...
 echo   TUC triple count:
 curl -s -X POST http://localhost:3030/tuc/query ^
@@ -64,7 +62,6 @@ curl -s -X POST http://localhost:3032/udine/query ^
 echo.
 
 echo ================================================================
-echo  All done! Fuseki servers loaded with fresh RDF data.
 echo  TUC     -> http://localhost:3030/tuc/query
 echo  Girona  -> http://localhost:3031/girona/query
 echo  Udine   -> http://localhost:3032/udine/query
