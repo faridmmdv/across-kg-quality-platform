@@ -28,7 +28,7 @@ export default function QualityReportPanel({ report, onReset }) {
         </button>
       </div>
 
-      {/* FAIR Assessment — overall score + notes only, no F A I R dimension cards */}
+      {/* FAIR Assessment */}
       <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: 10, padding: 16, marginBottom: 12 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
           <div style={{ fontSize: 10, color: "var(--muted)", fontFamily: "var(--mono)", letterSpacing: ".07em" }}>
