@@ -19,9 +19,9 @@ echo.
 
 
 echo [2/4] Checking Fuseki servers are online...
-curl -s -o nul -w "  TUC     (3030): %%{http_code}\n" http://localhost:3030/tuc/query
-curl -s -o nul -w "  Girona  (3031): %%{http_code}\n" http://localhost:3031/girona/query
-curl -s -o nul -w "  Udine   (3032): %%{http_code}\n" http://localhost:3032/udine/query
+curl -s -o nul -w "  TUC (3030): %%{http_code}\n" http://localhost:3030/tuc/query
+curl -s -o nul -w "  Girona (3031): %%{http_code}\n" http://localhost:3031/girona/query
+curl -s -o nul -w "  Udine (3032): %%{http_code}\n" http://localhost:3032/udine/query
 echo.
 
 echo [3/4] Pushing RDF data to Fuseki...
